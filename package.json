@@ -1,0 +1,17 @@
+{
+  "name": "emform-lite",
+  "version": "1.0.0",
+  "description": "one page form website",
+  "main": "server.js",
+  "repository": "https://github.com/Edit-Mr/emform-lite.git",
+  "author": "Edit-Mr <elvismao.070512@gmail.com>",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "passport": "^0.7.0",
+    "passport-discord": "^0.1.4",
+    "sqlite3": "^5.1.7"
+  }
+}

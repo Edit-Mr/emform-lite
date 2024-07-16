@@ -1,0 +1,101 @@
+/** @format */
+
+.ball-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+    --ball-color: 360;
+    /* 220 ~ 360 */
+    --complimentaryHue1: calc(var(--ball-color) + 30); /* 第一個補色 */
+    --complimentaryHue2: calc(var(--ball-color) + 60); /* 第二個補色 */
+    --saturation: 95%; /* 飽和度 */
+    --lightness: 50%; /* 亮度 */
+    background: linear-gradient(
+        0deg,
+        hsl(var(--ball-color), 100%, 89%),
+        #fff 50%
+    );
+}
+
+.ball {
+    height: 30vmin;
+    aspect-ratio: 1 / 1;
+    background-color: hsl(
+        var(--ball-color),
+        var(--saturation),
+        var(--lightness)
+    );
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(14vmin);
+}
+.ball1 {
+    animation: ball1 5s infinite linear alternate;
+}
+.ball2 {
+    height: 20vmin;
+    background-color: hsl(
+        var(--complimentaryHue1),
+        var(--saturation),
+        var(--lightness)
+    );
+    animation: ball2 5s infinite linear;
+    bottom: 20vmin;
+    right: 20vmin;
+    transform: translateY(5vmin);
+}
+
+.ball3 {
+    height: 20vmin;
+    background-color: hsl(
+        var(--complimentaryHue2),
+        var(--saturation),
+        var(--lightness)
+    );
+    animation: ball3 5s infinite linear alternate;
+}
+
+.ball4 {
+    height: 20vmin;
+    background-color: hsl(
+        var(--ball-color),
+        var(--saturation),
+        var(--lightness)
+    );
+}
+
+@keyframes ball1 {
+    0% {
+        bottom: 50vmin;
+        right: 0;
+    }
+    100% {
+        bottom: 0;
+        right: 50vmin;
+    }
+}
+
+@keyframes ball2 {
+    0% {
+        transform: rotate(0deg) translateY(10vmin);
+    }
+    100% {
+        transform: rotate(360deg) translateY(10vmin);
+    }
+}
+
+@keyframes ball3 {
+    0% {
+        bottom: 20vmin;
+        right: 0;
+    }
+    100% {
+        bottom: 20vmin;
+        right: 50vmin;
+    }
+}

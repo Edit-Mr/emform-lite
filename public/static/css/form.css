@@ -1,0 +1,349 @@
+/** @format */
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    overflow: hidden;
+}
+
+body,
+input,
+button {
+    font-family: "Noto Sans TC", ststem-ui, sans-serif;
+    font-optical-sizing: auto;
+}
+
+main {
+    height: 100dvh;
+    background: #fff;
+    --theme-color: 217, 96%, 35%;
+    color: rgb(17 24 39);
+    position: relative;
+}
+
+section {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    overflow: auto;
+    line-height: 1.5;
+    opacity: 0;
+    z-index: 2;
+}
+
+section.show {
+    pointer-events: all;
+    animation: showSection 0.5s ease-out 0.2s forwards;
+}
+.backward section.show {
+    animation: showSectionRe 0.5s ease-out 0.2s forwards;
+}
+
+.backward section.last {
+    animation: lastSectionRe 0.5s ease-out forwards;
+}
+section.last {
+    animation: lastSection 0.5s ease-out forwards;
+}
+
+@keyframes showSection {
+    from {
+        transform: translateY(10rem);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes lastSection {
+    from {
+        transform: translateY(0rem);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-10rem);
+        opacity: 0;
+    }
+}
+
+@keyframes showSectionRe {
+    from {
+        transform: translateY(-10rem);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes lastSectionRe {
+    from {
+        transform: translateY(0rem);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(10rem);
+        opacity: 0;
+    }
+}
+
+main > .show:has(.noNav) ~ nav {
+    display: none;
+}
+
+main > .show:has(.lastQuestion) ~ nav .skip {
+    pointer-events: none;
+    background-color: hsl(var(--theme-color), 0.2);
+    cursor: not-allowed;
+}
+
+.discord {
+    background: #5865f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+}
+.discord img {
+    width: 1.5em;
+    filter: invert(1);
+}
+
+.question {
+    max-width: 47rem;
+    min-height: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+}
+.intro {
+    padding-top: 5rem;
+}
+
+.question-box {
+    margin-bottom: 4rem;
+}
+
+.question-img {
+    display: flex;
+}
+
+.question-img > div,
+.question-img > img {
+    flex: 1;
+    display: block;
+    height: 100%;
+}
+
+.question-img > div {
+    padding: 5rem;
+}
+
+.question-index {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: hsl(0, 0%, 50%);
+    margin-bottom: 0.5rem;
+}
+.intro h1 {
+    font-size: 2rem;
+    line-height: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.author {
+    font-size: 1rem;
+    color: hsl(0, 0%, 50%);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.author img {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    background: #c7c7c7;
+    color: transparent;
+}
+.intro h2 {
+    margin-block: 2rem 1rem;
+}
+.intro p {
+    margin-bottom: 1rem;
+}
+
+p {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    margin-bottom: 2.5rem;
+}
+
+.intro li {
+    margin-bottom: 0.5rem;
+    margin-left: 1.5rem;
+}
+
+section button {
+    margin-top: 2rem;
+    border-radius: 0.375rem;
+    padding: 0.375rem 1.25rem;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 500;
+}
+
+button {
+    background-color: hsl(var(--theme-color));
+    color: #fff;
+    outline: transparent;
+    border: none;
+    cursor: pointer;
+    display: block;
+}
+button:hover {
+    opacity: 0.9;
+}
+
+button:disabled {
+    background-color: hsl(0, 0%, 90%);
+    color: hsl(0, 0%, 50%);
+    cursor: not-allowed;
+}
+
+.must {
+    color: hsl(0, 0%, 50%);
+    font-size: 0.875rem;
+    margin-top: 0.5rem !important;
+}
+
+button:active {
+    opacity: 0.8;
+}
+
+.question-box:not(.intro) > .question-box > div + div {
+    margin-top: 2rem;
+}
+
+.highlight {
+    color: hsl(0, 0%, 20%);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-block: 1rem 2rem;
+    border: 1px solid rgb(229, 231, 235);
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+        rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+        rgba(0, 0, 0, 0.1) 0px 1px 2px -1px;
+    background: #ffffff67;
+}
+
+nav {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 1rem;
+    z-index: 5;
+    display: flex;
+    border-radius: 0.375rem;
+    overflow: hidden;
+    gap: 1px;
+    background: hsl(var(--theme-color), 0.5);
+}
+
+nav > button {
+    padding: 0.5rem 1rem;
+}
+nav > button span {
+    transform: rotate(90deg) translateY(-5%);
+    display: block;
+}
+
+.start {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.start button {
+    margin: 0;
+}
+
+.sending {
+    animation: blink 1.5s infinite alternate linear;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.3;
+    }
+}
+
+.thanks p {
+    margin-block: 1rem;
+}
+
+.thanks .highlight {
+    padding-block: 2rem;
+    margin-top: 2rem;
+}
+
+.credit {
+    color: #acacac;
+}
+
+.history {
+    background: hsl(var(--theme-color), 0.1);
+    color: hsl(var(--theme-color));
+    padding: 1rem;
+    border-radius: 0.5rem;
+    display: none;
+}
+
+.question-box:has(*[required]) h2::after {
+    content: "*";
+    color: rgb(217, 48, 37);
+    padding-left: 0.1em;
+}
+
+.invalid,
+.invalid[type="radio"] ~ label {
+    animation: shake 0.2s 3 ease;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(0.5rem);
+    }
+    50% {
+        transform: translateX(-0.5rem);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
